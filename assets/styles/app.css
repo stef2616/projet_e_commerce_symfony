@@ -26,6 +26,15 @@ h1{
     text-align: center;
 }
 
+a{
+    position: relative;
+    text-decoration: none;
+    color: cyan;
+    top: 90px;
+    right: 40px;
+
+}
+
 .container_reg{
     display: flex;
     align-items: center;
