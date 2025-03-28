@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Category{% endblock %}
+
+{% block body %}
+<div class="container">
+<div class="form-control2">
+    <h1>Add Category</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form.variety , {'attr':{'class':'form form-control'}}) }}
+        <input class="btn btn-success" id="btn1" name="Edit" type="submit" value="Edit" />
+    {{ form_end(form) }}
+   </div> 
+</div>
+
+    
+{% endblock %}
