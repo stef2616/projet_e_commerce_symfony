@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product{% endblock %}
+
+{% block body %}
+<div class="container"> 
+    <h1>Product</h1> <br>
+
+    {{ include ('layouts/_flash_message.html.twig') }}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>actions</th>
+                <th>
+                <a class="btn btn-outline-secondary" href="{{ path('app_produit_new') }}">Add Product</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.name }}</td>
+                <td>{{ produit.description }}</td>
+                <td>{{ produit.price }}</td>
+                <td>
+                    <a class="btn btn-outline-info" href="{{ path('app_produit_show', {'id': produit.id}) }}">show</a>
+                    <a class="btn btn-outline-primary" href="{{ path('app_produit_edit', {'id': produit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no products found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+</div>
+{% endblock %}

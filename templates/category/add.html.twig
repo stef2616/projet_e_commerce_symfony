@@ -5,11 +5,11 @@
 {% block body %}
 <div class="container">
 <div class="form-control2">
-    <h1>Add Category</h1>
+    <h1>Add Category</h1><br>
 
     {{ form_start(form) }}
-        {{ form_widget(form.name , {'attr':{'class':'form form-control'}}) }}
-        <input class="btn btn-success" id="btn1" name="Save" type="submit" value="Save" />
+        {{ form_row(form.name , {'attr':{'class':'form form-control'}}) }} <br>
+        <input class="btn btn-outline-success" id="btn1" name="Save" type="submit" value="Save" />
     {{ form_end(form) }}
    </div> 
 </div>
