@@ -16,7 +16,7 @@ final class CategoryController extends AbstractController
     #[Route('/admin/category', name: 'app_category')]
     public function index(CategoryRepository $category): Response
     {
-        $category= $category->findAll();
+        $category = $category->findAll();
         return $this->render('category/index.html.twig', ['category' => $category]);
     }
  #[Route('/admin/category/add', name: 'app_category_add')]
@@ -57,7 +57,7 @@ final class CategoryController extends AbstractController
     {
             $em->remove($category);
             $em->flush();
-            $this->addFlash('danger' , 'Category Deleted Successfully');
+            $this->addFlash('danger' , 'Category has Deleted');
             return $this->redirectToRoute('app_category' , ['category' => $category]);
     }
 }

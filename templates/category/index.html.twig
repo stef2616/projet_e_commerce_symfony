@@ -15,7 +15,7 @@
     <table class="table">
         <tr>
             <th>Id</th>
-            <th>Variety</th>
+            <th>Name</th>
             <th>Action</th>
              <th>
              <a href="{{ path('app_category_add') }}" class="btn btn-outline-success" id="btn2">Add</a>
@@ -24,10 +24,10 @@
  {% for category in category %}
         <tr>
             <td>{{ category.id }} -</td>
-            <td>{{ category.variety }}</td>
+            <td>{{ category.name}}</td>
             <td>
             <a href="{{ path('app_category_update', {'id': category.id}) }}" class="btn btn-primary" id="btn2">Edit</a>
-            <a href="{{ path('app_category_delete', {'id': category.id}) }}" class="btn btn-danger" id="btn2">Delete</a>
+            <a href="{{ path('app_category_delete', {'id': category.id}) }}" class="btn btn-danger" id="btn2" onclick="return confirm('Do you really want delete this category ?')">Delete</a>
             </td>
         </tr>
     

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 100%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>User</h1> <br>
+    {% include 'layouts/_flash_message.html.twig' %}
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Roles</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Action</th>
+        </tr>
+    {% for user in user %}
+   {% if ('ROLE_ADMIN' in user.roles) == false %} 
+        <tr>
+        <td>{{ user.id }} -</td>
+        <td>{{ user.email }}</td>
+        <td>
+          {% if ('ROLE_ADMIN' in user.roles) %}
+            <span class="badge bg-danger">Admin</span>
+          {% elseif ('ROLE_EDITOR' in user.roles) %}
+            <span class="badge bg-primary">Editor</span>
+          {% else %}
+            <span class="badge bg-secondary">User</span>
+          {% endif %}
+          </td>
+        <td>{{ user.firstname }}</td>
+        <td>{{ user.lastname }}</td>
+        <td>
+        {% if ('ROLE_ADMIN' in user.roles) == false %}
+           {% if ('ROLE_EDITOR' in user.roles) == false %}
+            <a href="{{ path('app_user_to_editor', {'id': user.id}) }}" class="btn btn-primary" id="btn2" onclick= "return confirm('Do you want to change his role ?')">Prom</a>
+            {% else %}
+            <a href="{{ path('app_user_remove_editor', {'id': user.id}) }}" class="btn btn-danger" id="btn2" onclick= "return confirm('Do you want to remove his role ?')">Remove</a>
+            {% endif %} 
+             <a href="#" class="btn btn-primary" id="btn2">Edit</a>
+            <a href="{{ path('app_user_remove' , {'id': user.id}) }} ," class="btn btn-danger" id="btn2" onclick="return confirm('Do you really want delete this user ?')">Delete</a>
+        {% endif %}
+        </td>
+        </tr>
+       {% endif %} 
+    {% endfor %}
+    </table>
+    
+{% endblock %}

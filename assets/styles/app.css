@@ -32,7 +32,7 @@ h1{
     text-align: center;
 }
 
-a{
+.log1{
     position: relative;
     text-decoration: none;
     color: cyan;
@@ -59,5 +59,13 @@ a{
 
 #btn2{
     width: 70px;
+    position: static;
+}
+
+#search_btn{
+    position: static;
+    height: 38px;
+}
+.navbar-toggler{
     position: static;
 }
